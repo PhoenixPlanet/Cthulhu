@@ -25,6 +25,45 @@ public class InventoryData
 		_hasModifiedThisFrame = false;
 	}
 
+	public bool HasItem(string itemId, int quantity) {
+		int count = 0;
+		for (int i = 0; i < _slotList.Length; i++) {
+			if (_slotList[i] != null && _slotList[i].TargetItem.ItemID == itemId) {
+				count += _slotList[i].StackedNumber;
+			}
+		}
+
+		return count >= quantity;
+	}
+
+	public bool UseItem(string itemID, int quantity) {
+		if (HasItem(itemID, quantity) == false) {
+			InventoryDataError("아이템이 부족하여 사용할 수 없습니다.");
+			return false;
+		}
+
+		for (int i = 0; i < _slotList.Length; i++) {
+			if (_slotList[i] == null || _slotList[i].TargetItem.ItemID != itemID) {
+				continue;
+			}
+
+			if (_slotList[i].StackedNumber >= quantity) {
+				_slotList[i].StackedNumber -= quantity;
+				if (_slotList[i].StackedNumber == 0) {
+					_slotList[i] = null;
+				}
+				_hasModifiedThisFrame = true;
+				return true;
+			}
+
+			quantity -= _slotList[i].StackedNumber;
+			_slotList[i] = null;
+		}
+
+		InventoryDataError("아이템이 부족하여 사용할 수 없습니다.");
+		return false;
+	}
+
 	public bool HasSameItemType(int targetIdx, int compareIdx) {
 		if (_slotList[targetIdx] == null || _slotList[compareIdx] == null)
 			return false;

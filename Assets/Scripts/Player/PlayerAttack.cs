@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player), typeof(Animator), typeof(PlayerTarget))]
+[RequireComponent(typeof(Player), typeof(Animator), typeof(PlayerTargetHit))]
 public class PlayerAttack : MonoBehaviour
 {
 	#region PublicVariables
@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
 	#region PrivateVariables
 	private Animator _animator;
-	private PlayerTarget _target;
+	private PlayerTargetHit _target;
 
 	[SerializeField] private int _damage;
 

@@ -19,9 +19,9 @@ public class PlayerSanity : PlayerStat
 	{
 		base.Add(amount);
 		UIManager.Instance.Sanity.UpdateGauge(currentValue);
-		if (currentValue / maxValue < vignettePercentage)
+		if ((float)currentValue / maxValue < vignettePercentage)
 		{
-			CameraManager.Instance.SetVignetteAlpha(1 - currentValue / maxValue / vignettePercentage);
+			CameraManager.Instance.SetVignetteAlpha(1 - (float)currentValue / maxValue / vignettePercentage);
 		}
 		else
 		{

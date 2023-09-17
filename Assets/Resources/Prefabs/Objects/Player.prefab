@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 5713167191898180059}
   - component: {fileID: 5713167191898180050}
   - component: {fileID: 5713167191898180062}
+  - component: {fileID: 2456350854569767869}
   - component: {fileID: 5713167191898180058}
   - component: {fileID: 5713167191898180069}
   - component: {fileID: 5713167191898180068}
@@ -372,6 +373,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 100
   currentValue: 0
+  vignettePercentage: 0
 --- !u!114 &5713167191898180059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +415,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hittableUI: {fileID: 0}
+  interactableDistance: 2
+--- !u!114 &2456350854569767869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5713167191898180064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19c89bc999d25a468d9f5f65a3f6f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _interactableUI: {fileID: 0}
   interactableDistance: 2
 --- !u!114 &5713167191898180058

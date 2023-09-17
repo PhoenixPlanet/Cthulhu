@@ -109,6 +109,9 @@ public class SpawnData
 
 		for (int i = 0; i < _precision; i++) {
 			for (int j = 0; j < _precision; j++) {
+				if (j == _precision / 2 && i == _precision / 2) {
+					continue;
+				}
 				int unitAreaCount = GetUnitAreaObjectCount(i, j);
 				if (Random.value > 0.4 ? (unitAreaCount < leastCount) : (unitAreaCount <= leastCount)) {
 					leastCount = unitAreaCount;

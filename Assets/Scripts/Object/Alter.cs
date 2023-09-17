@@ -26,6 +26,11 @@ public class Alter : MonoBehaviour, IInteractable
 	/// <param name="inventoryIndex"></param>
 	public void Interact(int inventoryIndex)
 	{
+		if (inventoryIndex == -1)
+		{
+			return;
+		}
+
 		InventoryItem item = GetInventory().GetItem(inventoryIndex);
 		GameManager.Instance.AddPoint(item.TargetItem.Point * item.StackedNumber);
 		GetInventory().DeleteItem(inventoryIndex);

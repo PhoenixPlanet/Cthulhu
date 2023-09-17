@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Player))]
@@ -9,7 +10,7 @@ public class PlayerInteract : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	private PlayerTarget _target;
+	private PlayerTargetInteract _target;
 	private PlayerItemHandler _itemHandler;
 	#endregion
 
@@ -21,9 +22,9 @@ public class PlayerInteract : MonoBehaviour
 		{
 			IInteractable targetInteract = target as IInteractable;
 			int currentIndex = _itemHandler.GetCurrentInventoryIndex();
-            if (currentIndex != -1)
+			targetInteract.Interact(_itemHandler.GetCurrentInventoryIndex());
+			if (currentIndex != -1)
             {
-				targetInteract.Interact(_itemHandler.GetCurrentInventoryIndex());
 				EffectManager.Instance.SpawnDropEffect(_itemHandler.transform.position);
 				_itemHandler.PutIn();
 			}

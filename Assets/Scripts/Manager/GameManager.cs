@@ -50,6 +50,7 @@ public class GameManager : Singleton<GameManager>
 	private void Start()
 	{
 		UIManager.Instance.Gold.UpdateAmount(_gold);
+		StartCoroutine(MinusSanity());
 	}
 
 	private void Update()
@@ -60,6 +61,13 @@ public class GameManager : Singleton<GameManager>
 			_tier++;
 			_player.HealSanity(20);
 			_offerui.gameObject.SetActive(true);
+		}
+	}
+
+	public IEnumerator MinusSanity() {
+		while (true) {
+			yield return new WaitForSeconds(1f);
+			_player.MinusSanity(1);
 		}
 	}
 	#endregion

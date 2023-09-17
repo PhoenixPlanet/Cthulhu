@@ -222,6 +222,22 @@ public class Inventory : MonoBehaviour
 		_maxItemNumber += expandNumber;
 		_inventoryData.ExpandInventory(expandNumber);
 	}
+
+	public bool HasItem(string itemID) {
+		return _inventoryData.HasItem(itemID, 1);
+	}
+
+	public bool HasItem(string itemID, int quantity) {
+		return _inventoryData.HasItem(itemID, quantity);
+	}
+
+	public bool UseItem(string itemID) {
+		return _inventoryData.UseItem(itemID, 1);
+	}
+
+	public bool UseItem(string itemID, int quantity) {
+		return _inventoryData.UseItem(itemID, quantity);
+	}
 	#endregion
     
 	#region PrivateMethod

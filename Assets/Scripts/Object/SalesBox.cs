@@ -25,8 +25,12 @@ public class SalesBox : MonoBehaviour, IInteractable
 	/// <param name="inventoryIndex"></param>
 	public void Interact(int inventoryIndex)
 	{
+		if (inventoryIndex == -1)
+		{
+			return;
+		}
+
 		InventoryItem item = GetInventory().GetItem(inventoryIndex);
-		Debug.Log(item.TargetItem.Gold + " / " + item.StackedNumber);
 		GameManager.Instance.AddGold(item.TargetItem.Gold * item.StackedNumber);
 		GetInventory().DeleteItem(inventoryIndex);
 	}

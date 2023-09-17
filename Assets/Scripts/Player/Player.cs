@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
 	private PlayerMove _move;
 	private PlayerAttack _attack;
 	private PlayerInteract _interact;
-	private PlayerTarget _target;
+	private PlayerTargetHit _targetHit;
+	private PlayerTargetInteract _targetInteract;
 	private PlayerItemHandler _itemHandler;
 
 	private bool _canAct = true;
@@ -78,6 +79,10 @@ public class Player : MonoBehaviour
 		CameraManager.Instance.Shake(CameraShaker.EShakingType.hit);
 		_health.Add(-amount);
 	}
+	public void MinusSanity(int amount)
+	{
+		_sanity.Add(-amount);
+	}
 	public void Die()
 	{
 		GameManager.Instance.GameOver();
@@ -96,14 +101,17 @@ public class Player : MonoBehaviour
 		TryGetComponent(out _move);
 		TryGetComponent(out _attack);
 		TryGetComponent(out _interact);
-		TryGetComponent(out _target);
+		TryGetComponent(out _targetHit);
+		TryGetComponent(out _targetInteract);
 		transform.Find("Item Handler").TryGetComponent(out _itemHandler);
 	}
 	private void Update()
 	{
 		SetDirectionX();
-		_target.CheckTarget();
-		_target.HighlightTarget();
+		_targetHit.CheckTarget();
+		_targetHit.HighlightTarget();
+		_targetInteract.CheckTarget();
+		_targetInteract.HighlightTarget();
 		if (_canAct == false)
 			return;
 		_attack.HandleInput();

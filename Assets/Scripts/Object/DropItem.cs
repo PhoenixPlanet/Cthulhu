@@ -4,7 +4,6 @@ using TH.Core;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
-using System.Data.SqlTypes;
 
 public class DropItem : MonoBehaviour
 {

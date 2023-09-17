@@ -1,8 +1,8 @@
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+
 using UnityEngine;
 
 namespace TH.Core {
@@ -20,6 +20,8 @@ public class WorldManager : Singleton<WorldManager>
 		{6, 300},
 		{7, 500}
 	};
+
+	public IReadOnlyDictionary<string, BuildingData> BuildingDataDict => _buildingDataDict;
 	#endregion
 
 	#region PrivateVariables
@@ -29,10 +31,14 @@ public class WorldManager : Singleton<WorldManager>
 	[SerializeField] private List<ObjectDataWrapper> _originalObjectDataList;
 	[SerializeField] private List<AnimalDataWrapper> _originalAnimalDataList;
 	[SerializeField] private List<ItemDataWrapper> _originalItemDataList;
+	[SerializeField] private List<BuildingDataWrapper> _originalBuildingDataList;
 	[SerializeField] private WorldSettingWrapper _originalWorldSetting;
+
+	[SerializeField] private UIBuilding _uiBuilding;
 
 	[ShowInInspector] private Dictionary<string, ObjectData> _objectDataDict;
 	[ShowInInspector] private Dictionary<string, ItemData> _itemDataDict;
+	[ShowInInspector] private Dictionary<string, BuildingData> _buildingDataDict;
 	private WorldSetting _worldSetting;
 
 	[ShowInInspector] private Dictionary<int, List<Area>> _areaDict;
@@ -43,10 +49,12 @@ public class WorldManager : Singleton<WorldManager>
 	public WorldSetting.SectionSetting GetSectionSetting(int section) {
 		return _worldSetting.sectionSettings[section];
 	}
+
 	public ObjectData GetObjectData(string objectId)
 	{
 		return _objectDataDict[objectId];
 	}
+
 	public GameObject GetItemPrefab(string objectId)
 	{
 		return _objectDataDict[objectId].dropItem;
@@ -55,6 +63,11 @@ public class WorldManager : Singleton<WorldManager>
 	public ItemData GetItemData(string itemId) 
 	{
 		return _itemDataDict[itemId];	
+	}
+
+	public BuildingData GetBuildingData(string buildingId) 
+	{
+		return _buildingDataDict[buildingId];
 	}
 
 	public int GetAreaSize() {
@@ -97,7 +110,7 @@ public class WorldManager : Singleton<WorldManager>
 		if (spawnGold == true) {
 			foreach (var data in _objectDataDict) {
 				if (data.Value.objectID == "BerryBush") {
-					data.Value.dropItem = _objectDataDict["GoldOre"].dropItem;
+					data.Value.dropItem = _objectDataDict["Gold"].dropItem;
 				}
 			}
 		} else {
@@ -112,14 +125,14 @@ public class WorldManager : Singleton<WorldManager>
 	public void SetCopperSpawnSilver(bool spawnSilver) {
 		if (spawnSilver == true) {
 			foreach (var data in _objectDataDict) {
-				if (data.Value.objectID == "CopperOre") {
-					data.Value.dropItem = _objectDataDict["SilverOre"].dropItem;
+				if (data.Value.objectID == "Copper") {
+					data.Value.dropItem = _objectDataDict["Silver"].dropItem;
 				}
 			}
 		} else {
 			foreach (var data in _objectDataDict) {
-				if (data.Value.objectID == "CopperOre") {
-					data.Value.dropItem = _originalObjectDataList.Find(o => o.objectData.objectID == "CopperOre").objectData.dropItem;
+				if (data.Value.objectID == "Copper") {
+					data.Value.dropItem = _originalObjectDataList.Find(o => o.objectData.objectID == "Copper").objectData.dropItem;
 				}
 			}
 		}
@@ -161,6 +174,11 @@ public class WorldManager : Singleton<WorldManager>
 		}
 	}
 
+	public void OpenBuildingUI(Func<BuildingData, bool> onBuildingSelected) {
+		_uiBuilding.gameObject.SetActive(true);
+		_uiBuilding.OnOpenPanel(onBuildingSelected);
+	}
+
 	public Area GetAreaByUnitPos(Vector2Int unitPos) {
 		return _areaList[unitPos.x][unitPos.y];
 	}
@@ -180,7 +198,14 @@ public class WorldManager : Singleton<WorldManager>
 		LoadInitialSettings();
 		GenerateTiles();
 		Rescan();
+
+		InitUI();
+
 		_areaDict[0][0].Open();
+	}
+
+	private void InitUI() {
+		_uiBuilding.Init();
 	}
 
 	private void LoadInitialSettings() {
@@ -199,6 +224,12 @@ public class WorldManager : Singleton<WorldManager>
 			itemDataList.Add(new ItemData(data.itemData));
 		}
 		_itemDataDict = itemDataList.ToDictionary(i => i.ItemID);
+
+		List<BuildingData> buildingDataList = new List<BuildingData>();
+		foreach (var data in _originalBuildingDataList) {
+			buildingDataList.Add(new BuildingData(data.buildingData));
+		}
+		_buildingDataDict = buildingDataList.ToDictionary(b => b.buildingID);
 
 		_worldSetting = new WorldSetting(_originalWorldSetting.worldSetting);
 	}

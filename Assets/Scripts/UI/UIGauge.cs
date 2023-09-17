@@ -29,7 +29,7 @@ public abstract class UIGauge : MonoBehaviour
     {
         this.currentValue = currentValue;
         float modifiedValue = 1 - ((float)currentValue / maxValue);
-		Debug.Log(currentValue + " / " + maxValue);
+		//Debug.Log(currentValue + " / " + maxValue);
         image.material.SetFloat("_ClipUvRight", modifiedValue);
 		_text.text = currentValue.ToString();
     }
