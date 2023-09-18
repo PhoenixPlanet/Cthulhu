@@ -10,7 +10,11 @@ public class EmptyGround : MonoBehaviour, IInteractable
 	#endregion
 
 	#region PrivateVariables
+	private const string BUILDING_PREFAB_PATH = "Prefabs/Building/";
+
 	private Inventory _inventory;
+
+	private ObjectGetter _buildingGround = new ObjectGetter(TypeOfGetter.Parent);
 	#endregion
 
 	#region PublicMethod
@@ -43,6 +47,11 @@ public class EmptyGround : MonoBehaviour, IInteractable
 		foreach (var e in buildingData.needElements) {
 			GetInventory().UseItem(e.itemID, e.number);
 		}
+
+		Building building = Instantiate(Resources.Load<Building>(BUILDING_PREFAB_PATH + buildingData.buildingID), _buildingGround.Get(gameObject).transform);
+		building.OnBuild(buildingData);
+
+		gameObject.SetActive(false);
 
 		return true;
 	}

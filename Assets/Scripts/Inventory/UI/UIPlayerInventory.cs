@@ -86,6 +86,12 @@ public class UIPlayerInventory : UIInventory
 				}
 			}
 
+			if (Input.GetAxis("Mouse ScrollWheel") > 0) {
+				_inventory.SelectNextItem();
+			} else if (Input.GetAxis("Mouse ScrollWheel") < 0) {
+				_inventory.SelectPreviousItem();
+			}
+
 			for (int i = 0; i < _slotList.Length; i++) {
 				if (_inventory.SelectedItemIdx == i) {
 					_slotList[i].Select();

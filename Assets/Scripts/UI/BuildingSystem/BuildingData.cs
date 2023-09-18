@@ -14,6 +14,7 @@ public class BuildingData
 	public string buildingName;
 	public string buildingDescription;
 	public BuildingElement[] needElements;
+	public ItemRecipe[] itemRecipes;
 	#endregion
 
 	#region PrivateVariables
@@ -25,8 +26,12 @@ public class BuildingData
 		buildingName = buildingData.buildingName;
 		buildingDescription = buildingData.buildingDescription;
 		needElements = new BuildingElement[buildingData.needElements.Length];
+		itemRecipes = new ItemRecipe[buildingData.itemRecipes.Length];
 		for (int i = 0; i < buildingData.needElements.Length; i++) {
 			needElements[i] = new BuildingElement(buildingData.needElements[i]);
+		}
+		for (int i = 0; i < buildingData.itemRecipes.Length; i++) {
+			itemRecipes[i] = new ItemRecipe(buildingData.itemRecipes[i]);
 		}
 	}
 	#endregion
@@ -47,6 +52,22 @@ public class BuildingData
 		public BuildingElement(BuildingElement buildingElement) {
 			itemID = buildingElement.itemID;
 			number = buildingElement.number;
+		}
+	}
+
+	[Serializable]
+	public class ItemRecipe {
+		public string outItemID;
+		public float time;
+		public BuildingElement[] needElements;
+
+		public ItemRecipe(ItemRecipe itemRecipe) {
+			outItemID = itemRecipe.outItemID;
+			time = itemRecipe.time;
+			needElements = new BuildingElement[itemRecipe.needElements.Length];
+			for (int i = 0; i < itemRecipe.needElements.Length; i++) {
+				needElements[i] = new BuildingElement(itemRecipe.needElements[i]);
+			}
 		}
 	}
 }

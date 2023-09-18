@@ -18,6 +18,7 @@ public class ItemData
 	[MultiLineProperty]
 	[SerializeField] public string ItemFlavorText;
 	[SerializeField] public Sprite ItemSprite;
+	[SerializeField] public GameObject ItemPrefab;
 
 	[SerializeField] public bool IsStackable;
 	[ShowIf("IsStackable", true)]
@@ -37,6 +38,7 @@ public class ItemData
 		ItemDescription = data.ItemDescription;
 		ItemFlavorText = data.ItemFlavorText;
 		ItemSprite = data.ItemSprite;
+		ItemPrefab = data.ItemPrefab;
 		IsStackable = data.IsStackable;
 		MaxStackableNumber = data.MaxStackableNumber;
 		Gold = data.Gold;

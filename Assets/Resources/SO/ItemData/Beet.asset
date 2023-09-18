@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddd35b542bf3244bb115cbf168e0652, type: 3}
+  m_Name: Beet
+  m_EditorClassIdentifier: 
+  itemData:
+    ItemID: Beet
+    ItemName: "\uBE44\uD2B8"
+    ItemDescription: "\uC544\uC0AD\uC544\uC0AD\uD55C \uBE44\uD2B8\uC785\uB2C8\uB2E4.
+      \uC660\uC9C0 \uBAA8\uB974\uAC8C \uC2EC\uC2E0\uC774 \uC548\uC815\uB429\uB2C8\uB2E4."
+    ItemFlavorText: "\"\uC544\uC0AD\uC544\uC0AD \uB9DB\uC788\uB294 \uBE44\uD2B8\""
+    ItemSprite: {fileID: -1238112939, guid: 11034deeea8b1174eabcb4270842246d, type: 3}
+    ItemPrefab: {fileID: 2936616885018506885, guid: 719479651fb011d428cccdba8f4c0e13, type: 3}
+    IsStackable: 1
+    MaxStackableNumber: 5
+    Gold: 1
+    Point: 1

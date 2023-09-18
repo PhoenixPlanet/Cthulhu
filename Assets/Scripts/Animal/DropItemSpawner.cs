@@ -11,19 +11,31 @@ public class DropItemSpawner : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private string _objectID; // ¿ùµå ¸Å´ÏÀú ÀÌ´Ï¼È¶óÀÌÁî ¾È ÇÏ¸é Á¦´ë·Î °ªÀÌ ¾È µé¾î°¡¼­ ÀÓ½Ã·Î Serialize ½ÃÄÑµÒ
+	[SerializeField] private string _objectID; // ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ ï¿½Ì´Ï¼È¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½Ó½Ã·ï¿½ Serialize ï¿½ï¿½ï¿½Ñµï¿½
 	#endregion
 
 	#region PublicMethod
 	[Button]
 	public void Drop()
 	{
-		EffectManager.Instance.SpawnDropEffect(transform.position);
 		int rand = Random.Range(WorldManager.Instance.GetObjectData(_objectID).dropQuantityMin
 			, WorldManager.Instance.GetObjectData(_objectID).dropQuantityMax);
-		for(int i = 0; i < rand; ++i)
+		Drop(rand);
+	}
+
+	public void Drop(int quantity) {
+		EffectManager.Instance.SpawnDropEffect(transform.position);
+		for(int i = 0; i < quantity; ++i)
 		{
 			Instantiate(WorldManager.Instance.GetItemPrefab(_objectID), transform.position, Quaternion.identity);
+		}
+	}
+
+	public void Drop(ItemData itemData, int quantity) {
+		EffectManager.Instance.SpawnDropEffect(transform.position);
+		for(int i = 0; i < quantity; ++i)
+		{
+			Instantiate(itemData.ItemPrefab, transform.position + Vector3.down * 2, Quaternion.identity);
 		}
 	}
 	public void SetObjectID(string objectID) => _objectID = objectID;

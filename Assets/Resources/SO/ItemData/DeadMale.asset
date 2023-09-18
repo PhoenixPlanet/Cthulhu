@@ -20,6 +20,7 @@ MonoBehaviour:
     ItemFlavorText: "\"\uB2C8\uC54C\uB77C\uD1A0\uD15D\uAED8\uC11C\uB294 \uC9C0\uC131\uC774
       \uC788\uB294 \uC0DD\uBB3C\uC744 \uAC00\uC7A5 \uC88B\uC544\uD558\uC2E0\uB2E4\""
     ItemSprite: {fileID: 21300000, guid: a871de94fe01aea4bbb6a6f8136bf55a, type: 3}
+    ItemPrefab: {fileID: 8299652079250648202, guid: 12012e05ca52e71409417184dcf49aab, type: 3}
     IsStackable: 0
     MaxStackableNumber: 0
     Gold: 30

@@ -25,6 +25,14 @@ MonoBehaviour:
         spawnCycleMin: 20
         spawnCycleMax: 60
         distributePrecision: 3
+      - objectID: Beet
+        isSpawnOnLoad: 1
+        initialSpawnCount: 2
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 10
+        spawnCycleMax: 20
+        distributePrecision: 3
       spawnMineSettings:
       - objectID: Copper
         isSpawnOnLoad: 1

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddd35b542bf3244bb115cbf168e0652, type: 3}
+  m_Name: HealthPotion
+  m_EditorClassIdentifier: 
+  itemData:
+    ItemID: HealthPotion
+    ItemName: "\uCCB4\uB825 \uD3EC\uC158"
+    ItemDescription: "\uBD89\uC740\uC0C9 \uD3EC\uC158\uC785\uB2C8\uB2E4. E\uD0A4\uB97C
+      \uB20C\uB7EC \uBA39\uC73C\uBA74 \uCCB4\uB825\uC774 \uD68C\uBCF5\uB429\uB2C8\uB2E4."
+    ItemFlavorText: "\"\uD798\uC774 \uCC28\uC624\uB978\uB2E4...\""
+    ItemSprite: {fileID: 2114440347, guid: 11034deeea8b1174eabcb4270842246d, type: 3}
+    ItemPrefab: {fileID: 2936616885018506885, guid: 33b6a51a8f3261745b45a96d7e869907, type: 3}
+    IsStackable: 1
+    MaxStackableNumber: 3
+    Gold: 1
+    Point: 1

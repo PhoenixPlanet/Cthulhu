@@ -20,3 +20,9 @@ MonoBehaviour:
     needElements:
     - itemID: Copper
       number: 2
+    itemRecipes:
+    - outItemID: HealthPotion
+      time: 1
+      needElements:
+      - itemID: Berry
+        number: 2
