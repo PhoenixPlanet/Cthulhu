@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddd35b542bf3244bb115cbf168e0652, type: 3}
+  m_Name: Wheat
+  m_EditorClassIdentifier: 
+  itemData:
+    ItemID: Wheat
+    ItemName: "\uAC74\uCD08"
+    ItemDescription: "\uB9D0\uB77C \uBE44\uD2C0\uC5B4\uC9C4 \uAC74\uCD08\uC785\uB2C8\uB2E4.
+      \uAC74\uBB3C\uC744 \uC9D3\uAE30\uC5D0 \uC720\uC6A9\uD574\uBCF4\uC785\uB2C8\uB2E4."
+    ItemFlavorText: "\"\uBC14\uC2A4\uB77D\uBC14\uC2A4\uB77D\""
+    ItemSprite: {fileID: 21300000, guid: 2b60474f88606bb4788d007cfb56a074, type: 3}
+    ItemPrefab: {fileID: 2936616885018506885, guid: 61446eeaf11f35d43bd91c76d7e0340d, type: 3}
+    IsStackable: 1
+    MaxStackableNumber: 5
+    Gold: 1
+    Point: 1

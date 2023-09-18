@@ -55,6 +55,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a76811ba139335440821a41ac2043abf, type: 2}
   - {fileID: 11400000, guid: 845de8423c456284594637dafd5e9bc1, type: 2}
   - {fileID: 11400000, guid: 0661bad4853990f4eb76b08b463e8873, type: 2}
+  - {fileID: 11400000, guid: 8bf36356a13546e4993b7953330645bb, type: 2}
   _originalAnimalDataList:
   - {fileID: 11400000, guid: 9e7f0dded2a97f64bb8bc2613c45477a, type: 2}
   - {fileID: 11400000, guid: 573e531d84a243d41869e784d8633e7a, type: 2}
@@ -79,6 +80,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ce6d0f5ccc54bec4b8b4aad4630eec20, type: 2}
   - {fileID: 11400000, guid: 0e55edf8b0259e647b1e57b472cbd889, type: 2}
   - {fileID: 11400000, guid: 876135217fbd5544ebf0b3073595b8ce, type: 2}
+  - {fileID: 11400000, guid: dced7beed4c45c7458ded6ce07bafd06, type: 2}
+  - {fileID: 11400000, guid: 9c37799e6b9918d4d8fe6e9b4f46ae71, type: 2}
   _originalBuildingDataList:
   - {fileID: 11400000, guid: 159ae4423a5a0a1438bba33757e89015, type: 2}
   _originalWorldSetting: {fileID: 11400000, guid: 5849bb6f9a362d4409bbfeeacd12c91e, type: 2}

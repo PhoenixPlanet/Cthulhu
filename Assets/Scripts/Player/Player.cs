@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	#region PublicVariables
+	public int Sanity => _sanity.CurrentValue;
 	#endregion
 
 	#region PrivateVariables

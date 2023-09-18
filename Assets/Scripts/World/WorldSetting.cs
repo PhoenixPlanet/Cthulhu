@@ -35,6 +35,9 @@ public class WorldSetting
 	[Serializable]
 	public class SectionSetting {
 		public GameObject sectionPrefab;
+		public string sectionName;
+		[TextArea]
+		public string sectionDescription;
 		public List<SpawnObjectSetting> spawnBerrySettings = new List<SpawnObjectSetting>();
 		public List<SpawnObjectSetting> spawnMineSettings = new List<SpawnObjectSetting>();
 		public List<AnimalSpawnObjectSetting> spawnAnimalSettings = new List<AnimalSpawnObjectSetting>();

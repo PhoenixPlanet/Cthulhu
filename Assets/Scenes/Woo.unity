@@ -651,6 +651,14 @@ PrefabInstance:
       propertyPath: _uiBuilding
       value: 
       objectReference: {fileID: 1181129313}
+    - target: {fileID: 1553219334848849850, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
+      propertyPath: _originalBuildingDataList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553219334848849850, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
+      propertyPath: _originalBuildingDataList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 44ae4ffb630dfc74082d6912a545bdc2, type: 2}
     - target: {fileID: 1553219334848849851, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -4267,7 +4275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5713167191898180057, guid: f7cf7c11fa766c4479a0b6b3726844f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5713167191898180057, guid: f7cf7c11fa766c4479a0b6b3726844f0, type: 3}
       propertyPath: m_LocalPosition.z

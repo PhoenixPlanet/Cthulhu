@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24be57059a0d4974fbdea04e2e5eb672, type: 3}
+  m_Name: MentalistBuilding
+  m_EditorClassIdentifier: 
+  buildingData:
+    buildingID: Mentalist
+    buildingName: "\uC2EC\uB9AC\uC220\uC0AC\uC758 \uC9D1"
+    buildingDescription: "\uC2EC\uB9AC\uC220\uC0AC\uC758 \uC9D1\uC5D0\uC11C\uB294
+      \uC815\uC2E0\uB825 \uD3EC\uC158\uC744 \uB9CC\uB4ED\uB2C8\uB2E4."
+    needElements:
+    - itemID: Silver
+      number: 2
+    - itemID: Wheat
+      number: 5
+    itemRecipes:
+    - outItemID: SanityPotion
+      time: 5
+      needElements:
+      - itemID: Berry
+        number: 2
+      - itemID: Beet
+        number: 3

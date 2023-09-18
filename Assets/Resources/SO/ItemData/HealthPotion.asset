@@ -22,5 +22,5 @@ MonoBehaviour:
     ItemPrefab: {fileID: 2936616885018506885, guid: 33b6a51a8f3261745b45a96d7e869907, type: 3}
     IsStackable: 1
     MaxStackableNumber: 3
-    Gold: 1
+    Gold: 5
     Point: 1

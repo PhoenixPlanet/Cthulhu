@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 public class PlayerStat : MonoBehaviour
 {
 	#region PublicVariables
+	public int CurrentValue => currentValue;
 	#endregion
 
 	#region PrivateVariables

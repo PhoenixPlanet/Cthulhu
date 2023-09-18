@@ -137,6 +137,9 @@ public class InventoryData
 
 		_slotList[targetIdx].StackedNumber -= quantity;
 		itemData = _slotList[targetIdx].TargetItem;
+		if (_slotList[targetIdx].StackedNumber == 0) {
+			_slotList[targetIdx] = null;
+		}
 
 		_hasModifiedThisFrame = true;
 

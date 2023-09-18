@@ -17,7 +17,7 @@ public class PlayerItemHandler : MonoBehaviour
 	private Inventory _inventory;
 	private TextMeshPro _quantityText;
 	/// <summary>
-	/// ÀÎº¥Åä¸®¿¡ ¼±ÅÃÇÑ °³Ã¼°¡ ¾øÀ» °æ¿ì -1 ¹ÝÈ¯.
+	/// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -1 ï¿½ï¿½È¯.
 	/// </summary>
 	private int _inventoryIndex = -1;
 
@@ -83,8 +83,20 @@ public class PlayerItemHandler : MonoBehaviour
 		if (_inventoryIndex != -1 && Input.GetKeyDown(KeyCode.E)) {
 			InventoryItem item = GetInventory().GetItem(_inventoryIndex);
 			if (item.TargetItem.ItemID == "Berry") {
-				GameManager.Instance.GetPlayer().HealHealth(10 * item.StackedNumber);
-				GetInventory().DeleteItem(_inventoryIndex);
+				GameManager.Instance.GetPlayer().HealHealth(2);
+				GetInventory().DeleteItem(_inventoryIndex, 1, out var _);
+				PutIn();
+			} else if (item.TargetItem.ItemID == "HealthPotion") {
+				GameManager.Instance.GetPlayer().HealHealth(20);
+				GetInventory().DeleteItem(_inventoryIndex, 1, out var _);
+				PutIn();
+			} else if (item.TargetItem.ItemID == "SanityPotion") {
+				GameManager.Instance.GetPlayer().HealSanity(15);
+				GetInventory().DeleteItem(_inventoryIndex, 1, out var _);
+				PutIn();
+			} else if (item.TargetItem.ItemID == "Beet") {
+				GameManager.Instance.GetPlayer().HealSanity(1);
+				GetInventory().DeleteItem(_inventoryIndex, 1, out var _);
 				PutIn();
 			}
 		}

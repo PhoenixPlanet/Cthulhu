@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39057ca3a9170184989d5b51b8014acb, type: 3}
+  m_Name: Wheat
+  m_EditorClassIdentifier: 
+  objectData:
+    objectID: Wheat
+    objectName: "\uAC74\uCD08"
+    hpMax: 2
+    objectPrefab: {fileID: 4835858055553044886, guid: 6d541c43a5d106842a901081f448996a, type: 3}
+    dropItem: {fileID: 2936616885018506885, guid: 61446eeaf11f35d43bd91c76d7e0340d, type: 3}
+    dropQuantityMin: 1
+    dropQuantityMax: 1

@@ -66,8 +66,12 @@ public class GameManager : Singleton<GameManager>
 
 	public IEnumerator MinusSanity() {
 		while (true) {
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds(5f);
 			_player.MinusSanity(1);
+
+			if (_player.Sanity <= 0) {
+				_player.Hit(5);
+			}
 		}
 	}
 	#endregion

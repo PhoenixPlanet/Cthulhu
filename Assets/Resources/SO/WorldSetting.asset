@@ -16,6 +16,8 @@ MonoBehaviour:
     areaSize: 12
     sectionSettings:
     - sectionPrefab: {fileID: 2156253339605112777, guid: c51b7d6bb0a615d44a362a9abcd248db, type: 3}
+      sectionName: "\uC2DC\uC791\uC758 \uB545"
+      sectionDescription: 
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 1
@@ -32,6 +34,14 @@ MonoBehaviour:
         cycleCoefficientOnMax: 100
         spawnCycleMin: 10
         spawnCycleMax: 20
+        distributePrecision: 3
+      - objectID: Wheat
+        isSpawnOnLoad: 1
+        initialSpawnCount: 2
+        spawnCountMax: 2
+        cycleCoefficientOnMax: 100
+        spawnCycleMin: 20
+        spawnCycleMax: 30
         distributePrecision: 3
       spawnMineSettings:
       - objectID: Copper
@@ -54,6 +64,8 @@ MonoBehaviour:
         spawnConditionOnSection: 0
         spawnConditionOnOpenedAreaNumber: 0
     - sectionPrefab: {fileID: 2156253339605112777, guid: 744a0f4c2ee8d6b439f8229cb65c4a74, type: 3}
+      sectionName: "\uD3C9\uBC94\uD55C \uB545"
+      sectionDescription: "\uAC74\uBB3C\uC744 \uC9C0\uC744 \uC218 \uC788\uB2E4."
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 1
@@ -94,6 +106,10 @@ MonoBehaviour:
         spawnConditionOnSection: 1
         spawnConditionOnOpenedAreaNumber: 0
     - sectionPrefab: {fileID: 3124035656356974953, guid: d7c132e90aa32d94fb3d807aa4c9e195, type: 3}
+      sectionName: "\uAD6C\uB9AC \uAD11\uC0B0"
+      sectionDescription: "\uAD6C\uB9AC\uAC00 \uB9CE\uC774 \uBC1C\uACAC\uB418\uC5C8\uB2E4\uB294
+        \uAD11\uC0B0\uC774\uB2E4.\n\uAC00\uB054\uC529 \uB2E4\uC774\uC544\uAC00 \uBCF4\uC778\uB2E4\uB294
+        \uC18C\uBB38\uC774 \uC788\uB2E4."
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 1
@@ -142,6 +158,10 @@ MonoBehaviour:
         spawnConditionOnSection: 1
         spawnConditionOnOpenedAreaNumber: 0
     - sectionPrefab: {fileID: 4285130682464014634, guid: 882c9ad74262f6641a967d249e4c57d2, type: 3}
+      sectionName: "\uC0DD\uBA85\uC758 \uB545"
+      sectionDescription: "\uB2E4\uC591\uD55C \uC0DD\uBA85\uC774 \uC790\uB77C\uB098\uB294
+        \uB545\uC774\uB2E4.\n\uBAA8\uB4E0 \uC0DD\uBA85\uC774 \uB2F9\uC2E0\uC5D0\uAC8C
+        \uCE5C\uC808\uD558\uC9C0\uB294 \uC54A\uB2E4."
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 1
@@ -200,6 +220,9 @@ MonoBehaviour:
         spawnConditionOnSection: 3
         spawnConditionOnOpenedAreaNumber: 3
     - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+      sectionName: "\uC5B4\uB460 \uAD11\uC0B0"
+      sectionDescription: "\uBE44\uC2FC \uAD11\uBB3C\uB4E4\uC774 \uC874\uC7AC\uD55C\uB2E4\uB294
+        \uACF3.\n\uC778\uAC04\uB4E4\uB3C4 \uC5EC\uB7FF \uBCF4\uC778\uB2E4."
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 0
@@ -256,6 +279,8 @@ MonoBehaviour:
         spawnConditionOnSection: 4
         spawnConditionOnOpenedAreaNumber: 1
     - sectionPrefab: {fileID: 6305996840126458707, guid: 03f6f449bd078a24ea5cbb39efe022bc, type: 3}
+      sectionName: 
+      sectionDescription: 
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 0
@@ -350,6 +375,8 @@ MonoBehaviour:
         spawnConditionOnSection: 3
         spawnConditionOnOpenedAreaNumber: 1
     - sectionPrefab: {fileID: 2156253339605112777, guid: 744a0f4c2ee8d6b439f8229cb65c4a74, type: 3}
+      sectionName: 
+      sectionDescription: 
       spawnBerrySettings:
       - objectID: BerryBush
         isSpawnOnLoad: 0
@@ -444,6 +471,8 @@ MonoBehaviour:
         spawnConditionOnSection: 3
         spawnConditionOnOpenedAreaNumber: 1
     - sectionPrefab: {fileID: 281087186028740551, guid: e3238060a85b1824fb6f1022253795d5, type: 3}
+      sectionName: 
+      sectionDescription: 
       spawnBerrySettings: []
       spawnMineSettings:
       - objectID: Gold
