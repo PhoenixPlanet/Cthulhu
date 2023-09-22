@@ -13,7 +13,7 @@ public class AnimalMove : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private string _objectID; // 월드 매니저 이니셜라이즈 안 하면 제대로 값이 안 들어가서 임시로 Serialize 시켜둠
+	[SerializeField] private string _objectID;
 	private Animator _animator;
 	private AIPath _aiPath;
 	private AIDestinationSetter _destination;

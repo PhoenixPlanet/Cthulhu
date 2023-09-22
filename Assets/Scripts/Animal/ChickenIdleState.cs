@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class ChickenIdleState : StateMachineBehaviour
 {
-	private Animal _animal;
-	private float timer = 0;
-	[SerializeField] private float idleTimer;
+    private Animal _animal;
+    private float timer = 0;
+    [SerializeField] private float idleTimer;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-		animator.transform.parent.TryGetComponent(out _animal);
-		timer = 0;
+        animator.transform.parent.TryGetComponent(out _animal);
+        timer = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-		timer += Time.deltaTime;
-		if(timer > idleTimer)
-		{
-			timer = Random.Range(-0.5f, 0.5f);
-			_animal.Idle();
-		}
+        timer += Time.deltaTime;
+        if (timer > idleTimer)
+        {
+            timer = Random.Range(-0.5f, 0.5f);
+            _animal.Idle();
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

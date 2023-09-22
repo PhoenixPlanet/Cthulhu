@@ -11,7 +11,7 @@ public class DropItemSpawner : MonoBehaviour
 	#endregion
 
 	#region PrivateVariables
-	[SerializeField] private string _objectID; // ���� �Ŵ��� �̴ϼȶ����� �� �ϸ� ����� ���� �� ���� �ӽ÷� Serialize ���ѵ�
+	[SerializeField] private string _objectID;
 	#endregion
 
 	#region PublicMethod
