@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 8560327910492015445}
   - component: {fileID: 4378992077604505255}
   m_Layer: 5
-  m_Name: ItemDescriptionText
+  m_Name: SectionRewardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC81C\uC791\uD558\uAE30"
+  m_text: "\uC774\uB3D9\uD558\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7e3bf7f2e248b045b097da13d765d2c, type: 2}
   m_sharedMaterial: {fileID: -7962017913931591374, guid: b7e3bf7f2e248b045b097da13d765d2c, type: 2}
@@ -1453,7 +1453,7 @@ GameObject:
   - component: {fileID: 1006666662563638597}
   - component: {fileID: 1006666662563638596}
   m_Layer: 5
-  m_Name: CraftButton
+  m_Name: AdventureButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1575,7 +1575,7 @@ GameObject:
   - component: {fileID: 4572752673604985591}
   - component: {fileID: 2222602080142664646}
   m_Layer: 5
-  m_Name: GettableItemDescriptionPanel
+  m_Name: SectionRewardPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

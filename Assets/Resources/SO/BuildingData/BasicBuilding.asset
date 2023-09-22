@@ -30,10 +30,10 @@ MonoBehaviour:
         number: 3
       - itemID: Beet
         number: 2
-    - outItemID: SanityPotion
-      time: 5
+    - outItemID: DeadMale
+      time: 15
       needElements:
-      - itemID: Beet
-        number: 10
-      - itemID: Gold
-        number: 10
+      - itemID: DeadChicken
+        number: 1
+      - itemID: DeadRabbit
+        number: 1

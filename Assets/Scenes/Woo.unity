@@ -652,6 +652,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1181129313}
     - target: {fileID: 1553219334848849850, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
+      propertyPath: _originalWorldSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 5849bb6f9a362d4409bbfeeacd12c91e, type: 2}
+    - target: {fileID: 1553219334848849850, guid: 5d153f6796b366b4f879fcb74357e19d, type: 3}
       propertyPath: _originalBuildingDataList.Array.size
       value: 2
       objectReference: {fileID: 0}

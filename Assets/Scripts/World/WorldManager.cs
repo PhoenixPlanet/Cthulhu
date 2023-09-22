@@ -78,6 +78,10 @@ public class WorldManager : Singleton<WorldManager>
 		return _areaDict[section].FindAll(a => a.HasOpened).Count;
 	}
 
+	public IReadOnlyList<WorldSetting.SectionSetting> GetSectionSettings() {
+		return _worldSetting.sectionSettings;
+	}
+
 	[Button]
 	public void OpenArea(int section, int areaIdx) {
 		_areaDict[section][areaIdx].Open();
