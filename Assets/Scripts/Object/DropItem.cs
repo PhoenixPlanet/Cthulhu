@@ -34,7 +34,7 @@ public class DropItem : MonoBehaviour
 		if (_canPick == false)
 			return;
 		transform.DOKill();
-		if(getter.IsItemAvailableToInventory(WorldManager.Instance.GetItemData(itemID), _quantity))
+		if(!getter.IsPlayer || getter.IsItemAvailableToInventory(WorldManager.Instance.GetItemData(itemID), _quantity))
 		{
 			if (_isPicked == true)
 				return;
@@ -44,7 +44,7 @@ public class DropItem : MonoBehaviour
 		}
 		else if(_isPicked == true)
 		{
-			Vector3 direction = (transform.position - _player.transform.position).normalized;
+			Vector3 direction = (transform.position - _getter.transform.position).normalized;
 			transform.DOJump(transform.position + direction, 0.3f, 1, 0.3f);
 			Initialize();
 		}
@@ -96,31 +96,53 @@ public class DropItem : MonoBehaviour
 	}
 	private void RunToPlayer()
 	{
-		transform.position = Vector2.Lerp(transform.position, _player.transform.position, _speed * Time.deltaTime);
+		transform.position = Vector2.Lerp(transform.position, _getter.transform.position, _speed * Time.deltaTime);
 
 	}
 	private void PickedByPlayer()
 	{
-		if (_isPicked == true && Vector2.Distance(transform.position, _player.transform.position) < 0.5f)
+		if (_isPicked == true && Vector2.Distance(transform.position, _getter.transform.position) < 0.5f)
 		{
 			AddToInventory();
 		}
 	}
 	private void AddToInventory()
 	{
-		int rest = _quantity - _getter.AddItem(WorldManager.Instance.GetItemData(itemID), _quantity);
-		if (rest > 0)
+		bool condition;
+		int rest;
+
+        if (_getter.IsPlayer)
 		{
-			Vector3 direction = (transform.position - _player.transform.position).normalized;
-			_quantity = rest;
-			transform.DOJump(transform.position + direction, 0.3f, 1, 0.3f);
-			Initialize();
-		}
-		else
+            rest = _quantity - _getter.AddItem(WorldManager.Instance.GetItemData(itemID), _quantity);
+			condition = rest > 0;
+
+			if (condition)
+			{
+                _quantity = rest;
+            }
+        } else
 		{
-			Destroy(gameObject);
+			SmartAI ai = _getter.GetComponent<SmartAI>();
+
+			condition = ai.HasItem;
+
+			if (condition == false)
+			{
+				ai.SetHandItem(WorldManager.Instance.GetItemData(itemID));
+			}
 		}
-	}
+
+        if (condition)
+        {
+            Vector3 direction = (transform.position - _getter.transform.position).normalized;
+            transform.DOJump(transform.position + direction, 0.3f, 1, 0.3f);
+            Initialize();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 	private void ShineSelf()
 	{
 		_shineTimer += Time.deltaTime * _shineDuration;

@@ -13,14 +13,14 @@ public class SalesBox : MonoBehaviour, IInteractable
 	#endregion
 
 	#region PublicMethod
-	public void Sell(int inventoryIndex)
+	public void Sell(ItemData item, int quantity)
 	{
-		
+		GameManager.Instance.AddGold(item.Gold * quantity);
 	}
 	public Vector2 GetPosition() => transform.position;
 	/// <summary>
-	/// index°¡ -1ÀÏ ¶§´Â È£ÃâÇÏ¸é ¾È µÊ. Áï, ¹Ýµå½Ã ¹«¾ð°¡¸¦ Ä³¸¯ÅÍ°¡ µé°í ÀÖ¾î¾ß(¼±ÅÃÇØ¾ß) ÇÔ.
-	/// ¸·¾ÆÁÙ±î ¸»±î °í¹ÎÇÏ´Ù°¡ ¹ö±× ÅÍÁú ¶§¿¡´Â ÅÍÁö´Â °Ô Â÷¶ó¸® ³ªÀ» °Í °°¾Æ¼­ ¾È ¸·¾Æ ÁÜ.
+	/// indexï¿½ï¿½ -1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ ï¿½ï¿½. ï¿½ï¿½, ï¿½Ýµï¿½ï¿½ ï¿½ï¿½ï¿½ð°¡¸ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½) ï¿½ï¿½.
+	/// ï¿½ï¿½ï¿½ï¿½ï¿½Ù±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 	/// </summary>
 	/// <param name="inventoryIndex"></param>
 	public void Interact(int inventoryIndex)
@@ -31,7 +31,7 @@ public class SalesBox : MonoBehaviour, IInteractable
 		}
 
 		InventoryItem item = GetInventory().GetItem(inventoryIndex);
-		GameManager.Instance.AddGold(item.TargetItem.Gold * item.StackedNumber);
+		Sell(item.TargetItem, item.StackedNumber);
 		GetInventory().DeleteItem(inventoryIndex);
 	}
 	#endregion

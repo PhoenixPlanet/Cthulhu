@@ -9,6 +9,7 @@ using TH.Core;
 public class Animal : WorldObject
 {
 	#region PublicVariables
+	public bool HasReachedDestination => _move.Reached;
 	#endregion
 
 	#region PrivateVariables
@@ -39,10 +40,19 @@ public class Animal : WorldObject
 	{
 		_move.ChasePlayer();
 	}
+	public void GoToObject(Transform target)
+	{
+		_move.ChaseObject(target);
+	}
 	public void Attack(Collider2D target)
 	{
 		_animator.SetTrigger("attack");
 		target.GetComponent<Player>().Hit(_damage);
+	}
+	public void AttackObject(WorldObject target)
+	{
+		_animator.SetTrigger("attack");
+		target.Hit(3);
 	}
 	#endregion
 

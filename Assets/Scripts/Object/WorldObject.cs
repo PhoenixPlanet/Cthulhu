@@ -11,6 +11,9 @@ public class WorldObject : MonoBehaviour, IHittable
 {
 	#region PublicVariables
 	public string ObjectID => _objectID;
+	public int HP => _hp;
+	public int MaxHP => WorldManager.Instance.GetObjectData(_objectID).hpMax;
+	public bool HasHit => _hasHit;
 	#endregion
 
 	#region PrivateVariables
@@ -22,8 +25,11 @@ public class WorldObject : MonoBehaviour, IHittable
 	private SpriteRenderer _sr;
 	protected DropItemSpawner _drop;
 	protected int _hp;
+	protected int _maxhp;
 	[SerializeField] private Vector2 hittablePointA = new Vector2(-0.5f, 0.5f);
 	[SerializeField] private Vector2 hittablePointB = new Vector2(0.5f, -0.5f);
+
+	private bool _hasHit;
 	#endregion
 
 	#region PublicMethod
@@ -33,13 +39,16 @@ public class WorldObject : MonoBehaviour, IHittable
 		_objectID = id;
 		_areaPos = areaPos;
 		_onObjectDestroyed = onObjectDestroyed;
-		_hp = WorldManager.Instance.GetObjectData(_objectID).hpMax;
+		_maxhp = WorldManager.Instance.GetObjectData(_objectID).hpMax;
+		_hp = _maxhp;
 	}
 	public Vector2 GetPosition() => transform.position;
 	public Vector2 GetHittableUIPositionA() => (Vector2)transform.position + hittablePointA;
 	public Vector2 GetHittableUIPositionB() => (Vector2)transform.position + hittablePointB;
 	public virtual void Hit(int damage)
 	{
+		_hasHit = true;
+
 		_sr.material.EnableKeyword("HITEFFECT_ON");
 		Invoke(nameof(DisableHitEffect), 0.13f);
 		_sr.transform.DOShakePosition(0.13f, 0.4f);
@@ -49,6 +58,12 @@ public class WorldObject : MonoBehaviour, IHittable
 			Die();
 		}
 	}
+
+	public virtual void Heal(int heal)
+	{
+        _hp = Mathf.Clamp(_hp + heal, 0, WorldManager.Instance.GetObjectData(_objectID).hpMax);
+    }
+
 	public virtual void Die()
 	{
 		CameraManager.Instance.Shake(CameraShaker.EShakingType.crash);

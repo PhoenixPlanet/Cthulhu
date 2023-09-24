@@ -24,6 +24,8 @@ namespace TH.Core
 
         #region PUBLIC_METHOD
         public abstract NodeState Evaluate();
+
+        public abstract void Abort();
         #endregion
 
         #region PRIVATE_METHOD
@@ -33,6 +35,18 @@ namespace TH.Core
     public abstract class BTInternalNode: BTNode {
         protected bool _isRunningChild = false;
         protected int _runningIndex = 0;
+
+        public override void Abort()
+        {
+            Debug.Log("abort");
+            _isRunningChild = false;
+            _runningIndex = 0;
+
+            foreach (var n in _children)
+            {
+                n.Abort();
+            }
+        }
     }
 
     public class BTSequenceNode: BTInternalNode
@@ -65,6 +79,7 @@ namespace TH.Core
                 return NodeState.SUCCESS;
             }
 
+            Debug.Log("run sequence " + _runningIndex);
             BTNode child = _children[_runningIndex];
             NodeState result = child.Evaluate();
 
@@ -74,6 +89,7 @@ namespace TH.Core
 
             if (result == NodeState.SUCCESS) {
                 _runningIndex++;
+                Debug.Log("onsuccess sequence " + _runningIndex);
                 return NodeState.RUNNING;
             }
 
@@ -115,7 +131,9 @@ namespace TH.Core
 
         #region PUBLIC_METHOD
         public override NodeState Evaluate() {
+            Debug.Log("selector call");
             if (_children == null || _children.Count == 0) {
+                Debug.Log("selector fail");
                 return NodeState.FAILURE;
             }
 
@@ -130,10 +148,10 @@ namespace TH.Core
 
             if (_runningIndex >= _children.Count) {
                 _isRunningChild = false;
-                _runningSequence.Clear();
                 return NodeState.FAILURE;
             }
 
+            Debug.Log("run selector " + _runningIndex);
             BTNode child = _runningSequence[_runningIndex];
             NodeState result = child.Evaluate();
 
@@ -143,18 +161,17 @@ namespace TH.Core
 
             if (result == NodeState.SUCCESS) {
                 _isRunningChild = false;
-                _runningSequence.Clear();
                 _runningIndex = 0;
                 return NodeState.SUCCESS;
             }
 
             if (result == NodeState.FAILURE) {
                 _runningIndex++;
+                Debug.Log("onfail selector " + _runningIndex);
                 return NodeState.RUNNING;
             }
 
             _isRunningChild = false;
-            _runningSequence.Clear();
             return NodeState.FAILURE;
         }
         #endregion
@@ -192,8 +209,12 @@ namespace TH.Core
                 return NodeState.FAILURE;
             }
 
-            return _targetAction();
+            NodeState result = _targetAction();
+            Debug.Log(_targetAction.Method.Name + " " + result);
+            return result;
         }
+
+        public override void Abort() { }
         #endregion
 
         #region PRIVATE_METHOD

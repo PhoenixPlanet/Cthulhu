@@ -10,6 +10,7 @@ using UnityEngine;
 public class AnimalMove : MonoBehaviour
 {
 	#region PublicVariables
+	public bool Reached => _aiPath.reachedDestination;
 	#endregion
 
 	#region PrivateVariables
@@ -30,7 +31,6 @@ public class AnimalMove : MonoBehaviour
 		_animator.SetBool("move", true);
 		_destination.target = null;
 		_aiPath.SetPath(RandomPath.Construct(transform.position, _idleMoveDistance));
-
 	}
 	public void ChasePlayer()
 	{
@@ -38,6 +38,12 @@ public class AnimalMove : MonoBehaviour
 		_animator.SetBool("move", true);
 		_destination.target = GameManager.Instance.GetPlayer().transform;
 	}
+	public void ChaseObject(Transform target)
+	{
+        _aiPath.maxSpeed = ((AnimalData)WorldManager.Instance.GetObjectData(_objectID)).speedIdle;
+        _animator.SetBool("move", true);
+		_destination.target = target;
+    }
 	#endregion
 
 	#region PrivateMethod

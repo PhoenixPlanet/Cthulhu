@@ -11,9 +11,9 @@ public class AnimalAI : MonoBehaviour
 
 	#region PrivateVariables
 	private Animal _animal;
-	[SerializeField ]private float _attackRange;	// ©Ы╣Е ╦е╢оюЗ юл╢о╪х╤СюлаН ╬х го╦И а╕╢К╥н ╟╙юл ╬х ╣И╬Н╟║╪╜ юс╫ц╥н Serialize ╫цдя╣р
-	[SerializeField] private float _recognitionIn;  // ©Ы╣Е ╦е╢оюЗ юл╢о╪х╤СюлаН ╬х го╦И а╕╢К╥н ╟╙юл ╬х ╣И╬Н╟║╪╜ юс╫ц╥н Serialize ╫цдя╣р
-	[SerializeField] private float _recognitionOut; // ©Ы╣Е ╦е╢оюЗ юл╢о╪х╤СюлаН ╬х го╦И а╕╢К╥н ╟╙юл ╬х ╣И╬Н╟║╪╜ юс╫ц╥н Serialize ╫цдя╣р
+	[SerializeField ]private float _attackRange;	// О©╫О©╫О©╫О©╫ О©╫е╢О©╫О©╫О©╫ О©╫л╢о╪х╤О©╫О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫о╦О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫О©╫Н╟║О©╫О©╫ О©╫с╫ц╥О©╫ Serialize О©╫О©╫О©╫я╣О©╫
+	[SerializeField] private float _recognitionIn;  // О©╫О©╫О©╫О©╫ О©╫е╢О©╫О©╫О©╫ О©╫л╢о╪х╤О©╫О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫о╦О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫О©╫Н╟║О©╫О©╫ О©╫с╫ц╥О©╫ Serialize О©╫О©╫О©╫я╣О©╫
+	[SerializeField] private float _recognitionOut; // О©╫О©╫О©╫О©╫ О©╫е╢О©╫О©╫О©╫ О©╫л╢о╪х╤О©╫О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫о╦О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫ О©╫О©╫Н╟║О©╫О©╫ О©╫с╫ц╥О©╫ Serialize О©╫О©╫О©╫я╣О©╫
 
 	private Animator _animator;
 	private Collider2D _collider;
