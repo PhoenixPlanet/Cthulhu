@@ -64,7 +64,7 @@ public class Quest {
 			return true;
 		}
 
-		if (targetFunc()) {
+		if (targetFunc() == true) {
 			isCompleted = true;
 			return true;
 		}

@@ -55,6 +55,16 @@ public class WorldObject : MonoBehaviour, IHittable
 		_drop.Drop();
 		Destroy(gameObject);
 	}
+
+	public virtual WorldObjectAward GetAwardInfo() {
+		if (_objectID == "Berry") {
+			return new WorldObjectAward(WorldObjectAward.AwardType.HEALTH, 1);
+		} else if (_objectID == "Beet") {
+			return new WorldObjectAward(WorldObjectAward.AwardType.SANITY, 1);
+		}
+
+		return new WorldObjectAward(WorldObjectAward.AwardType.NONE, 0);
+	}
 	#endregion
 
 	#region PrivateMethod
@@ -72,4 +82,20 @@ public class WorldObject : MonoBehaviour, IHittable
 		_sr.material.DisableKeyword("HITEFFECT_ON");
 	}
 	#endregion
+
+	public class WorldObjectAward {
+		public enum AwardType {
+			NONE,
+			HEALTH,
+			SANITY
+		}
+
+		public AwardType type {get; private set;}
+		public int amount {get; private set;}
+
+		public WorldObjectAward(AwardType type, int amount) {
+			this.type = type;
+			this.amount = amount;
+		}
+	}
 }
